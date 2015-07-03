@@ -1,0 +1,29 @@
+{
+  "name": "dted",
+  "version": "0.0.1",
+  "description": "Load dted terrain-data",
+  "main": "index.js",
+  "author": {
+    "name": "Tim Leerhoff",
+    "email": "<tleerhof@web.de>"
+  },
+  "scripts": {
+    "start": "node index",
+    "test": "jshint src/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.home.web/base/dted.git"
+  },
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "filereader": "~0.10.3",
+    "line-reader": "~0.2.4"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-jshint": "~0.11.2",
+    "grunt-contrib-yuidoc": "~0.7.0",
+    "grunt-mocha-cli": "~1.13.0"
+  }
+}
