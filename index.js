@@ -40,5 +40,6 @@ fs.readFile(__dirname + '/examples/e008/n53.dt0', function (err, data) {
         throw new Error(err);
 
     var tile = new dted.Tile(data);
+    console.log(tile.getCellData());
     
 });
