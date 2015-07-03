@@ -28,7 +28,7 @@
 
 'use strict';
 
-//module.exports = require('./lib/terrainsvr');
+module.exports = require('./lib/dtedtile');
 
 var fs = require('fs');
 var dted = require('./lib/dtedtile');
@@ -37,5 +37,5 @@ var dted = require('./lib/dtedtile');
 fs.readFile('../examples/e008/n53.dt0', function (err, data) {
     'use strict';
 
-    
+    var tile = new dted.Tile(data);
 });
