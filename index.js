@@ -24,7 +24,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-/* global module */
+/* global module, __dirname */
 
 'use strict';
 
@@ -34,8 +34,11 @@ var fs = require('fs');
 var dted = require('./lib/dtedtile');
 
 
-fs.readFile('../examples/e008/n53.dt0', function (err, data) {
+fs.readFile(__dirname + '/examples/e008/n53.dt0', function (err, data) {
     'use strict';
+    if(err)
+        throw new Error(err);
 
     var tile = new dted.Tile(data);
+    
 });
