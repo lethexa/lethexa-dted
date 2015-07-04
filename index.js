@@ -26,7 +26,7 @@
 
 /* global module, __dirname */
 
-module.exports = require('./lib/dtedtile');
+//module.exports = require('./lib/dtedtile');
 module.exports = require('./lib/dtedterrain');
 
 /*
