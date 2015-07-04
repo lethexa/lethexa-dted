@@ -26,12 +26,12 @@
 
 /* global module, __dirname */
 
-'use strict';
-
 module.exports = require('./lib/dtedtile');
+module.exports = require('./lib/dtedterrain');
 
+/*
 var fs = require('fs');
-var dted = require('./lib/dtedtile');
+var dted = require('./lib/dtedterrain');
 
 
 fs.readFile(__dirname + '/examples/e008/n53.dt0', function (err, data) {
@@ -43,3 +43,4 @@ fs.readFile(__dirname + '/examples/e008/n53.dt0', function (err, data) {
     console.log(tile.getCellData());
     
 });
+*/
