@@ -1,3 +1,5 @@
+/* global __dirname */
+
 var assert = require("assert");
 var dted = require('../index.js');
 
@@ -17,7 +19,7 @@ describe('dtedterrain', function () {
         it('should return valid tilename, when providing lat/lon-values', function () {
             var terrain = new dted.Terrain();
             var tileName = terrain.makeTileName(53.5, 8.125);
-            
+
             assert.equal(tileName, 'e008/n53');
         });
     });
@@ -26,7 +28,7 @@ describe('dtedterrain', function () {
         it('should return valid tilename, when providing lat/lon-values', function () {
             var terrain = new dted.Terrain();
             var tileName = terrain.makeTileName(-53.5, 8.125);
-            
+
             assert.equal(tileName, 'e008/s54');
         });
     });
@@ -35,7 +37,7 @@ describe('dtedterrain', function () {
         it('should return valid tilename, when providing lat/lon-values', function () {
             var terrain = new dted.Terrain();
             var tileName = terrain.makeTileName(-53.5, -8.125);
-            
+
             assert.equal(tileName, 'w009/s54');
         });
     });
@@ -44,8 +46,20 @@ describe('dtedterrain', function () {
         it('should return valid tilename, when providing lat/lon-values', function () {
             var terrain = new dted.Terrain();
             var tileName = terrain.makeTileName(53.5, -8.125);
-            
+
             assert.equal(tileName, 'w009/n53');
+        });
+    });
+
+    describe('#fetchTileAt()', function () {
+        it('should return valid tile, when providing lat/lon-values', function () {
+            var terrain = new dted.Terrain(new dted.FileSystemTileFetcher(__dirname + '/../examples'));
+            terrain.fetchTileAt(53.5, -8.125, function (tile, err) {
+                if (tile !== undefined)
+                    done();
+                else
+                    throw new Error('tile is undefined');
+            });
         });
     });
 });
