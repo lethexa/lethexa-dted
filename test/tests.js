@@ -115,4 +115,16 @@ describe('dtedterrain', function () {
             });
         });
     });
+
+    describe('#getAltitudeAt()', function () {
+        it('should return valid altitude at the given lat/lon-position', function (done) {
+            var terrain = new dted.Terrain(new dted.FileSystemTileFetcher(__dirname + '/../examples'));
+            terrain.getAltitudeAt(53.5, 8.5, function (err, altitude) {
+                if (err)
+                    throw err;
+                assert.equal(altitude, 1);
+                done();
+            });
+        });
+    });
 });
