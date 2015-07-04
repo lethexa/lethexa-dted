@@ -52,9 +52,21 @@ describe('dtedterrain', function () {
     });
 
     describe('#fetchTileAt()', function () {
-        it('should return valid tile, when providing lat/lon-values', function () {
+        it('should return undefined, when providing lat/lon-values for not existing tile', function (done) {
             var terrain = new dted.Terrain(new dted.FileSystemTileFetcher(__dirname + '/../examples'));
-            terrain.fetchTileAt(53.5, -8.125, function (tile, err) {
+            terrain.fetchTileAt(52.5, 8.125, function (err, tile) {
+                if (tile === undefined)
+                    done();
+                else
+                    throw new Error('No error has been thrown');
+            });
+        });
+    });
+
+    describe('#fetchTileAt()', function () {
+        it('should return valid tile, when providing lat/lon-values for existing tile', function (done) {
+            var terrain = new dted.Terrain(new dted.FileSystemTileFetcher(__dirname + '/../examples'));
+            terrain.fetchTileAt(53.5, 8.125, function (err, tile) {
                 if (tile !== undefined)
                     done();
                 else
