@@ -14,6 +14,47 @@ describe('Array', function () {
 });
 
 
+
+describe('dtedtile', function () {
+    describe('#getLonIndexOf()', function () {
+        it('should return a valid lon-index', function (done) {
+            var tileFetcher = new dted.FileSystemTileFetcher(__dirname + '/../examples');
+
+            tileFetcher.fetchTile('e008/n53', function (err, tile) {
+                if (err)
+                    throw err;
+
+                var actual = tile.getLonIndexOf(8.5);
+                var expected = 30;
+
+                assert.equal(expected, actual);
+
+                done();
+            });
+        });
+    });
+
+    describe('#getLatIndexOf()', function () {
+        it('should return a valid lat-index', function (done) {
+            var tileFetcher = new dted.FileSystemTileFetcher(__dirname + '/../examples');
+
+            tileFetcher.fetchTile('e008/n53', function (err, tile) {
+                if (err)
+                    throw err;
+
+                var actual = tile.getLatIndexOf(53.5);
+                var expected = 60;
+
+                assert.equal(expected, actual);
+
+                done();
+            });
+        });
+    });
+});
+
+
+
 describe('dtedterrain', function () {
     describe('#makeTileName()', function () {
         it('should return valid tilename, when providing lat/lon-values', function () {
