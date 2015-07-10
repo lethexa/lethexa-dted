@@ -12,7 +12,7 @@ module.exports = function (grunt) {
                 version: '<%= pkg.version %>',
 //        url: '<%= pkg.homepage %>',
                 options: {
-                    paths: ['lib/'],
+                    paths: ['./', 'lib/'],
                     outdir: 'doc/'
                 }
             }

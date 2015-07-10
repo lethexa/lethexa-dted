@@ -26,21 +26,9 @@
 
 /* global module, __dirname */
 
-//module.exports = require('./lib/dtedtile');
+/**
+ * A module for reading DTED-data from buffers
+ * @module dted
+ */
+
 module.exports = require('./lib/dtedterrain');
-
-/*
-var fs = require('fs');
-var dted = require('./lib/dtedterrain');
-
-
-fs.readFile(__dirname + '/examples/e008/n53.dt0', function (err, data) {
-    'use strict';
-    if(err)
-        throw new Error(err);
-
-    var tile = new dted.Tile(data);
-    console.log(tile.getCellData());
-    
-});
-*/
