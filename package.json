@@ -11,6 +11,9 @@
     "start": "node index",
     "test": "jshint src/"
   },
+  "publishConfig": {
+    "registry": "http://localhost:4873/"
+  },
   "repository": {
     "type": "git",
     "url": "git://git.home.web/base/dted.git"
