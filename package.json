@@ -12,7 +12,7 @@
     "test": "jshint src/"
   },
   "publishConfig": {
-    "registry": "http://localhost:4873/"
+    "registry": "http://npm.home.web:4873/"
   },
   "repository": {
     "type": "git",
