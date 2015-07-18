@@ -1,5 +1,5 @@
 {
-  "name": "dted",
+  "name": "lethexa-dted",
   "version": "0.0.1",
   "description": "Load dted terrain-data",
   "main": "index.js",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://git.home.web/base/dted.git"
+    "url": "git://git.home.web/base/js/lethexa-dted.git"
   },
   "license": "BSD-2-Clause",
   "dependencies": {
