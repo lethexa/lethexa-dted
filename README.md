@@ -7,7 +7,7 @@ Installation
 Usage
 -----
 
-        var dted = require('lethexa-dted');
+	var dted = require('lethexa-dted');
 
 	var fetcher = new dted.FileSystemTileFetcher('./dted');
 	var terrain = new dted.Terrain(fetcher);
@@ -16,4 +16,7 @@ Usage
 		console.log(tile);
 	});
 
+	terrain.getAltitudeAt(lat, lon, function(err, alt) {
+		console.log('Altitude: ', alt);
+	});
  
