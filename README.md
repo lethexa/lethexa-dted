@@ -13,7 +13,7 @@ Usage
 	var terrain = new dted.Terrain(fetcher);
 
 	terrain.fetchTileAt(lat, lon, function(err, tile) {
-		console.log(tile);
+		console.log('Altitude: ', tile.getAltitudeAt(lat, lon));
 	});
 
 	terrain.getAltitudeAt(lat, lon, function(err, alt) {
