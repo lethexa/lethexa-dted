@@ -1,4 +1,5 @@
-/examples/
 /node_modules/
 /doc/
-/nbproject/private/
+/dist/
+/build/
+npm-debug.log
