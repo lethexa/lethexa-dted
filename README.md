@@ -19,4 +19,9 @@ Usage
 	terrain.getAltitudeAt(lat, lon, function(err, alt) {
 		console.log('Altitude: ', alt);
 	});
+
+Contributors
+------------
+
+* Tim Leerhoff <tleerhof@web.de>
  
