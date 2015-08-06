@@ -4,8 +4,8 @@ Installation
         npm install
         grunt
 
-Usage
------
+Usage of Terrain
+----------------
 
 	var dted = require('lethexa-dted');
 
@@ -19,6 +19,24 @@ Usage
 	terrain.getAltitudeAt(lat, lon, function(err, alt) {
 		console.log('Altitude: ', alt);
 	});
+
+
+Usage of Tile
+-------------
+
+	var dted = require('lethexa-dted');
+
+	var buffer = ...dted-data...
+	var tile = dted.Tile( buffer );
+	
+	// Iterate all altitude-values and their position
+	tile.forEachPosition( function(lat, lon, alt) {
+		console.log('Position: ', lat, lon, alt);
+	});
+
+	// Find the next altitude-value
+	var alt = tile.getAltitudeAt(lat, lon);
+
 
 Contributors
 ------------
