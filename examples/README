@@ -1,1 +1,3 @@
 Contains the test-data for unittests.
+Please download and add tile e008/n53.dt0 to this folder to
+make tests work.
