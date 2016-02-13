@@ -38,8 +38,3 @@ Usage of Tile
 	var alt = tile.getAltitudeAt(lat, lon);
 
 
-Contributors
-------------
-
-* Tim Leerhoff <tleerhof@web.de>
- 
