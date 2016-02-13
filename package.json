@@ -11,12 +11,9 @@
     "start": "node index",
     "test": "jshint src/"
   },
-  "publishConfig": {
-    "registry": "http://npm.home.web:4873/"
-  },
   "repository": {
     "type": "git",
-    "url": "git://git.home.web/base/js/lethexa-dted.git"
+    "url": "https://github.com/lethexa/lethexa-dted"
   },
   "license": "BSD-2-Clause",
   "dependencies": {
