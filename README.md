@@ -4,6 +4,9 @@ Installation
         npm install
         grunt
 
+(Tests will fail after a fresh checkout, because tile e008/n53.dt0 must be
+ added to 'examples'-folder.) 
+
 Usage of Terrain
 ----------------
 
