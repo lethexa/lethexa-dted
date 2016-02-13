@@ -1,7 +1,7 @@
 {
   "name": "lethexa-dted",
   "version": "0.0.6",
-  "description": "Load dted terrain-data",
+  "description": "Library for decoding dted-files",
   "main": "index.js",
   "author": {
     "name": "Tim Leerhoff",
@@ -15,7 +15,7 @@
     "type": "git",
     "url": "https://github.com/lethexa/lethexa-dted"
   },
-  "license": "BSD-2-Clause",
+  "license": "MIT",
   "dependencies": {
     "filereader": "~0.10.3",
     "line-reader": "~0.2.4"
