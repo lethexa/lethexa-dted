@@ -2,6 +2,7 @@
 /dist/
 /build/
 /doc/
+/nbproject/
 /examples/
 jenkins-grunt.sh
 npm-debug.log
