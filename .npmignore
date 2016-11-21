@@ -4,6 +4,7 @@
 /doc/
 /nbproject/
 /examples/
+/nbproject/
 jenkins-grunt.sh
 npm-debug.log
 publishTag.sh
