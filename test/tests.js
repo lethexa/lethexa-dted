@@ -102,7 +102,26 @@ describe('dtedtile', function () {
             });
         });
     });
+/*
+    describe('#getLonIndexOf()', function () {
+        it('should throw an exception if index is not in this cell', function (done) {
+            var tileFetcher = createFileSystemTileFetcher();
 
+            tileFetcher.fetchTile('e008/n53', function (err, tile) {
+                if (err)
+                    throw err;
+                
+                try {
+                    tile.getLonIndexOf(9.0);
+                    
+                }
+                catch(err) {
+                    done();
+                }
+            });
+        });
+    });
+*/
 });
 
 
