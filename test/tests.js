@@ -102,6 +102,28 @@ describe('dtedtile', function () {
             });
         });
     });
+
+    describe('#getCellData()', function () {
+        it('should return the coords of the other corner', function (done) {
+            var tileFetcher = createFileSystemTileFetcher();
+
+            tileFetcher.fetchTile('e008/n53', function (err, tile) {
+                if (err)
+                    throw err;
+
+                var cell = tile.getCellData();
+                var actualLat = cell.latOfCorner;
+                var actualLon = cell.lonOfCorner;
+                var expectedLat = 54;
+                var expectedLon = 9;
+
+                assert.equal(actualLat, expectedLat);
+                assert.equal(actualLon, expectedLon);
+
+                done();
+            });
+        });
+    });
 /*
     describe('#getLonIndexOf()', function () {
         it('should throw an exception if index is not in this cell', function (done) {
