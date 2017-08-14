@@ -10,6 +10,12 @@ var createFileSystemTileFetcher = function() {
 };
 
 
+var roundDigits = function (x, digits) {
+    var multiplier = Math.pow(10.0, digits);
+    return Math.round(x * multiplier) / multiplier;
+};
+
+
 describe('dtedtile', function () {
     describe('#getLonIndexOf()', function () {
         it('should return a valid lon-index', function (done) {
@@ -197,7 +203,7 @@ describe('dtedterrain', function () {
         });
     });
 
-    describe('#fetchTileAt()', function () {
+    describe('#fetchTileAt() with callback', function () {
         it('should return valid tile, when providing lat/lon-values for existing tile', function (done) {
             var terrain = new dted.Terrain(createFileSystemTileFetcher());
             terrain.fetchTileAt(53.5, 8.125, function (err, tile) {
@@ -209,7 +215,19 @@ describe('dtedterrain', function () {
         });
     });
 
-    describe('#getAltitudeAt()', function () {
+    describe('#fetchTileAt() with promise', function () {
+        it('should return valid tile, when providing lat/lon-values for existing tile', function (done) {
+            var terrain = new dted.Terrain(createFileSystemTileFetcher());
+            terrain.fetchTileAt(53.5, 8.125).then(function (tile) {
+                if (tile !== undefined)
+                    done();
+            }, function(err) {
+                console.log('tile is undefined');
+	    });
+        });
+    });
+
+    describe('#getAltitudeAt() with callback', function () {
         it('should return valid altitude at the given lat/lon-position', function (done) {
             var terrain = new dted.Terrain(createFileSystemTileFetcher());
             terrain.getAltitudeAt(53.5, 8.5, function (err, altitude) {
@@ -220,4 +238,43 @@ describe('dtedterrain', function () {
             });
         });
     });
+
+    describe('#getAltitudeAt() with promise', function () {
+        it('should return valid altitude at the given lat/lon-position', function () { // No done here, otherwise it does not work
+            var terrain = new dted.Terrain(createFileSystemTileFetcher());
+            return terrain.getAltitudeAt(53.5, 8.5).then(function(altitude) {
+                assert.equal(altitude, 1);
+            });
+        });
+    });
+    
+    
+    
+    describe('getInterpolatedAltitudeAt() in tile', function () {
+        it('should return an interpolated altitude at the given lat/lon-position', function () {// No done here, otherwise it does not work
+            var terrain = new dted.Terrain(createFileSystemTileFetcher());
+            return terrain.getInterpolatedAltitudeAt(53.50415, 8.55833).then(function(altitude) {
+		assert.equal(roundDigits(altitude, 2), 1.5);
+            });
+        });
+    });
+    
+    describe('getInterpolatedAltitudeAt() at not existing tile', function () {
+        it('should return an interpolated altitude at the given lat/lon-position', function () {// No done here, otherwise it does not work
+            var terrain = new dted.Terrain(createFileSystemTileFetcher());
+            return terrain.getInterpolatedAltitudeAt(13.0, 13.0).then(function(altitude) {
+		assert.equal(roundDigits(altitude, 2), 0);
+            });
+        });
+    });
+    
+    describe('getInterpolatedAltitudeAt() at edge of tile', function () {
+        it('should return an interpolated altitude at the given lat/lon-position', function () {// No done here, otherwise it does not work
+            var terrain = new dted.Terrain(createFileSystemTileFetcher());
+            return terrain.getInterpolatedAltitudeAt(53.0, 8.0).then(function(altitude) {
+		assert.equal(roundDigits(altitude, 2), 7);
+            });
+        });
+    });
+    
 });
